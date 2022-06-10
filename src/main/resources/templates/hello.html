@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+   
+</head>
+
+
+<body>
+    <h1>Hello World！</h1>
+	<h1 th:text="${hello}"></h1>
+	
+	<table id="table_id" class="display">
+	    <thead>
+	        <tr>
+	            <th >國家/地區</th>
+		        <th >最後更新</th>
+		        <th >累積確診</th>
+		        <th >死亡人數</th>
+		        <th >死亡率</th>
+		        <th >國家代碼縮寫</th>
+	        
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="a : ${all}">
+            <td><span th:text="${a.countryRegion}">  </span></td>
+            <td><span th:text="${a.lastUpdate}">  </span></td>
+            <td><span th:text="${a.confirmed}">  </span></td>
+            <td><span th:text="${a.deaths}">  </span></td>
+            <td><span th:text="${a.mortalityRate}">  </span></td>
+            <td><span th:text="${a.is03}">  </span></td>
+      </tr>
+	    </tbody>
+	</table>
+	<script>
+		$(document).ready( function () {
+		    $('#table_id').DataTable(); 
+		} );
+	</script>
+	
+</body>
+
+</html>
